@@ -1,4 +1,4 @@
-# (c) 2020, M. Andrecut, mircea.andrecut@gmail.com
+# (c) 2020, M. Andrecut
 import numpy as np
 from scipy import sparse
 from scipy.special import softmax

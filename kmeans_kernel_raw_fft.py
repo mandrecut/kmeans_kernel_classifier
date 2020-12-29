@@ -34,11 +34,11 @@ def read_data(imagefile,labelfile,N,M,fft):
 def kmeans(x,Q):
     np.random.shuffle(x)
     u,err = x[:Q,:],1
+    rows = np.arange(len(x))
+    data = np.ones(len(x))
     while err > 1e-6:
         r = np.dot(x,u.T)
         cols = np.argmax(r,axis=1)
-        rows = np.array([i for i in range(len(r))])
-        data = np.array([1 for i in range(len(r))])
         r = sparse.csr_matrix((data,(rows,cols)),shape=r.shape)
         v = sparse.csr_matrix.dot(r.T,x)
         err = 0

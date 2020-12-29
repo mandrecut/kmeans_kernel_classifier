@@ -34,11 +34,11 @@ def get_one_image(x,L,l):
 def kmeans(z,Q):
     np.random.shuffle(z)
     u,err = z[:Q,:],1
+    rows = np.arange(len(z))
+    data = np.ones(len(z))
     while err > 1e-6:
         r = np.dot(z,u.T)
         cols = np.argmax(r,axis=1)
-        rows = np.array([i for i in range(len(r))])
-        data = np.array([1 for i in range(len(r))])
         r = sparse.csr_matrix((data,(rows,cols)),shape=r.shape)
         v = sparse.csr_matrix.dot(r.T,z)
         err = 0
